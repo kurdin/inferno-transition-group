@@ -1,7 +1,7 @@
-import { h, Component, cloneElement } from 'preact';
+import { createVNode, cloneVNode } from 'inferno';
+import Component from 'inferno-component';
 import { getChildMapping, mergeChildMappings } from './TransitionChildMapping';
-import { assign, linkRef } from './util';
-
+import { assign } from './util';
 
 const identity = i => i;
 
@@ -163,19 +163,19 @@ export class TransitionGroup extends Component {
 		}
 	}
 
-	render({ childFactory, transitionLeave, transitionName, transitionAppear, transitionEnter, transitionLeaveTimeout, transitionEnterTimeout, transitionAppearTimeout, component, ...props }, { children }) {
+	render({ childFactory, transitionLeave, transitionName, transitionAppear, transitionEnter, transitionLeaveTimeout, transitionEnterTimeout, transitionAppearTimeout, component, ...props }) {
 		// TODO: we could get rid of the need for the wrapper node
 		// by cloning a single child
 		let childrenToRender = [];
-		for (let key in children) if (children.hasOwnProperty(key)) {
-			let child = children[key];
+		for (let key in this.state.children) if (this.state.children.hasOwnProperty(key)) {
+			let child = this.state.children[key];
 			if (child) {
-				let ref = linkRef(this, key),
-					el = cloneElement(childFactory(child), { ref, key });
+				let ref = instance => this.refs[key] = instance,
+					el = cloneVNode(childFactory(child), { key, ref });
 				childrenToRender.push(el);
 			}
 		}
 
-		return h(component, props, childrenToRender);
+		return createVNode(typeof component === 'string' ? 2 : 16, component, props, childrenToRender);
 	}
 }

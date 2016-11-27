@@ -1,10 +1,10 @@
 {
-  "name": "preact-transition-group",
-  "amdName": "PreactTransitionGroup",
+  "name": "inferno-transition-group",
+  "amdName": "InfernoTransitionGroup",
   "version": "1.1.0",
-  "description": "transition-group ui component for preact",
-  "main": "dist/preact-transition-group.js",
-  "minified:main": "dist/preact-transition-group.min.js",
+  "description": "transition-group UI component for Inferno",
+  "main": "dist/inferno-transition-group.js",
+  "minified:main": "dist/inferno-transition-group.min.js",
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "npm-run-all transpile minify size",
@@ -18,40 +18,38 @@
     "release": "npm run -s build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "keywords": [
-    "preact",
-    "preact-component",
-    "preact-transition-group"
+    "inferno",
+    "inferno-component",
+    "inferno-transition-group"
   ],
-  "homepage": "http://github.com/developit/preact-transition-group",
-  "authors": [
-    "Jason Miller <jason@developit.ca>",
-    "React Authors (https://facebook.github.io/react)"
-  ],
-  "repository": "developit/preact-transition-group",
+  "homepage": "http://github.com/infernojs/inferno-transition-group",
+  "repository": "infernojs/inferno-transition-group",
   "bugs": {
-    "url": "http://github.com/developit/preact-transition-group/issues"
+    "url": "http://github.com/infernojs/inferno-transition-group/issues"
   },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
+    "babel-plugin-inferno": "^1.2.0-beta11",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-es2015-classes": "^6.14.0",
     "babel-plugin-transform-object-rest-spread": "^6.6.4",
-    "babel-plugin-transform-react-jsx": "^6.6.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-es2015-loose-rollup": "^7.0.0",
-    "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "eslint": "~2.2.0",
     "gzip-size-cli": "^1.0.0",
+    "inferno": "^1.0.0-beta16",
+    "inferno-component": "^1.0.0-beta16",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-chai-sinon": "^0.1.5",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-mocha": "^0.2.2",
     "karma-mocha-reporter": "^2.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
@@ -61,7 +59,6 @@
     "mocha": "^2.4.5",
     "npm-run-all": "^1.5.2",
     "phantomjs-prebuilt": "^2.1.5",
-    "preact": "^6.0.2",
     "pretty-bytes-cli": "^1.0.0",
     "rollup": "^0.36.0",
     "rollup-plugin-babel": "^2.6.1",
@@ -74,6 +71,6 @@
     "webpack": "^1.12.14"
   },
   "peerDependencies": {
-    "preact": "*"
+    "inferno": "*"
   }
 }

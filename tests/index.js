@@ -1,4 +1,5 @@
-import { h, Component, render, rerender } from 'preact';
+import Inferno, { render } from 'inferno';
+import Component from 'inferno-component';
 import TransitionGroup from 'src';
 
 /* global describe,expect,it,sinon */
@@ -20,9 +21,12 @@ class Todo extends Component {
 }
 
 class TodoList extends Component {
-	state = {
-		items: ['hello', 'world', 'click', 'me']
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			items: ['hello', 'world', 'click', 'me']
+		};
+	}
 
 	handleAdd(item) {
 		let { items } = this.state;
@@ -36,11 +40,11 @@ class TodoList extends Component {
 		this.setState({ items });
 	}
 
-	render(_, { items }) {
+	render() {
 		return (
 			<div>
 				<TransitionGroup>
-					{ items.map( (item, i) => (
+					{ this.state.items.map( (item, i) => (
 						<Todo key={item} onClick={this.handleRemove.bind(this, i)}>
 							{item}
 						</Todo>

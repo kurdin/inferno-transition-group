@@ -12,10 +12,12 @@ module.exports = function(config) {
 			'tests/**/*.js'
 		],
 
+		browsers: ['Chrome'],
+
 		preprocessors: {
 			'tests/**/*.js': ['webpack'],
 			'src/**/*.js': ['webpack'],
-			'**/*.js': ['sourcemap']
+			// '**/*.js': ['sourcemap']
 		},
 
 		client: {
@@ -32,12 +34,12 @@ module.exports = function(config) {
 						exclude: /node_modules/,
 						loader: 'babel',
 						query: {
-							sourceMap: 'inline',
-							presets: ['es2015-loose', 'stage-0', 'react'],
+							// sourceMap: 'inline',
+							presets: ['es2015-loose', 'stage-0'],
 							plugins: [
 								'transform-class-properties',
 								'transform-object-rest-spread',
-								['transform-react-jsx', { pragma:'h' }]
+								'inferno'
 							]
 						}
 					},
