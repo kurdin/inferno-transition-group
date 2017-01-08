@@ -5,7 +5,7 @@ import commonjs from 'rollup-plugin-commonjs';
 
 let pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-let external = Object.keys(pkg.dependencies || {}).concat(['inferno-component']);
+let external = Object.keys(pkg.dependencies || {});
 
 export default {
 	entry: 'src/index.js',
