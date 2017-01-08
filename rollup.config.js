@@ -1,12 +1,11 @@
 import path from 'path';
 import fs from 'fs';
 import babel from 'rollup-plugin-babel';
-import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
 let pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-let external = Object.keys(pkg.peerDependencies || {}).concat(Object.keys(pkg.dependencies || {}));
+let external = Object.keys(pkg.dependencies || {}).concat(['inferno-component']);
 
 export default {
 	entry: 'src/index.js',
@@ -20,21 +19,21 @@ export default {
 		babel({
 			babelrc: false,
 			comments: false,
-			exclude: 'node_modules/**',
 			presets: [
-				'es2015-loose-rollup',
+				[
+					"es2015",
+					{
+						"loose": true,
+						"modules": false
+					}
+				],
 				'stage-0'
 			],
 			plugins: [
+				'inferno',
 				'transform-class-properties',
-				['transform-es2015-classes', { loose:true }],
-				['inferno']
+				['transform-es2015-classes', { loose:true }]
 			]
-		}),
-		nodeResolve({
-			jsnext: true,
-			main: true,
-			skip: external
 		}),
 		commonjs({
 			include: 'node_modules/**',

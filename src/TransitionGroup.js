@@ -1,4 +1,4 @@
-import { createVNode, cloneVNode } from 'inferno';
+import { cloneVNode, createVNode } from 'inferno';
 import Component from 'inferno-component';
 import { getChildMapping, mergeChildMappings } from './TransitionChildMapping';
 import { assign } from './util';
@@ -10,8 +10,6 @@ export class TransitionGroup extends Component {
 		component: 'span',
 		childFactory: identity
 	};
-
-	refs = {};
 
 	state = {
 		children: getChildMapping(this.props.children || [])

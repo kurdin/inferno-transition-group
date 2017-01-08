@@ -35,7 +35,7 @@ module.exports = function(config) {
 						loader: 'babel',
 						query: {
 							// sourceMap: 'inline',
-							presets: ['es2015-loose', 'stage-0'],
+							presets: [['es2015', {loose: true}], 'stage-0'],
 							plugins: [
 								'transform-class-properties',
 								'transform-object-rest-spread',
