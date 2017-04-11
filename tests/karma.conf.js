@@ -6,7 +6,7 @@ module.exports = function(config) {
 		frameworks: ['mocha', 'chai-sinon'],
 		reporters: ['mocha'],
 
-		browsers: [process.env.KARMA_BROWSERS || 'PhantomJS'],
+		singleRun: true,
 
 		files: [
 			'tests/**/*.js'
@@ -32,7 +32,7 @@ module.exports = function(config) {
 					{
 						test: /\.jsx?$/,
 						exclude: /node_modules/,
-						loader: 'babel',
+						loader: 'babel-loader',
 						query: {
 							// sourceMap: 'inline',
 							presets: [['es2015', {loose: true}], 'stage-0'],
@@ -48,15 +48,6 @@ module.exports = function(config) {
 						loader: 'style!css'
 					}
 				]
-			},
-			resolve: {
-				modulesDirectories: [
-					path.resolve(__dirname, '..'),
-					'node_modules'
-				],
-				alias: {
-					src: path.resolve(__dirname, '..', 'src')
-				}
 			}
 		},
 

@@ -1,4 +1,3 @@
-import path from 'path';
 import fs from 'fs';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
@@ -10,7 +9,7 @@ let external = Object.keys(pkg.dependencies || {});
 export default {
 	entry: 'src/index.js',
 	dest: pkg.main,
-	sourceMap: path.resolve(pkg.main),
+	sourceMap: false,
 	moduleName: pkg.amdName,
 	format: 'umd',
 	useStrict: false,

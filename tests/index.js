@@ -1,6 +1,6 @@
 import Inferno, { render } from 'inferno';
 import Component from 'inferno-component';
-import TransitionGroup from 'src';
+import TransitionGroup from './../src/index';
 
 /* global describe,expect,it,sinon */
 
@@ -61,18 +61,18 @@ const Nothing = () => null;
 
 describe('TransitionGroup', () => {
 	let container = document.createElement('div'),
-		list, root;
+		list;
 	document.body.appendChild(container);
 
 	let $ = s => [].slice.call(container.querySelectorAll(s));
 
 	beforeEach( () => {
-		root = render(<TodoList ref={c => list=c} />, container, root);
+		render(<TodoList ref={c => list=c} />, container);
 	});
 
 	afterEach( () => {
 		list = null;
-		root = render(<Nothing />, container, root);
+		render(<Nothing />, container);
 	});
 
 	it('create works', () => {

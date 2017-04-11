@@ -10,7 +10,7 @@ export class TransitionGroup extends Component {
 		component: 'span',
 		childFactory: identity
 	};
-
+	refs = {};
 	state = {
 		children: getChildMapping(this.props.children || [])
 	};
