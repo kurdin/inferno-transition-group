@@ -173,7 +173,7 @@ export class TransitionGroup extends Component {
 				childrenToRender.push(el);
 			}
 		}
-
-		return createVNode(typeof component === 'string' ? 2 : 16, component, props, childrenToRender);
+		
+		return createVNode(typeof component === 'string' ? 2 : 16, component, props && props.className, childrenToRender, props);
 	}
 }
