@@ -4,6 +4,6 @@ export function assign(obj, props) {
 }
 
 export function getKey(vnode, fallback) {
-	var key = vnode.key || (vnode.attributes && vnode.attributes.key);
+	let key = vnode.key;
 	return key===null || key===undefined ? fallback : key;
 }
