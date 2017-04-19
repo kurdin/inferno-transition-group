@@ -1,7 +1,7 @@
 {
   "name": "inferno-transition-group",
   "amdName": "InfernoTransitionGroup",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "transition-group UI component for Inferno",
   "main": "dist/inferno-transition-group.js",
   "minified:main": "dist/inferno-transition-group.min.js",
@@ -30,7 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.1",
+    "babel-eslint": "^7.2.2",
     "babel-loader": "^6.4.1",
     "babel-plugin-inferno": "^3.2.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -63,10 +63,10 @@
     "sinon-chai": "^2.9.0",
     "style-loader": "^0.16.1",
     "uglify-js": "^2.8.22",
-    "webpack": "^2.3.3"
+    "webpack": "^2.4.1"
   },
   "dependencies": {
-    "inferno": "^3.0.3",
-    "inferno-component": "^3.0.3"
+    "inferno": "^3.0.5",
+    "inferno-component": "^3.0.5"
   }
 }
