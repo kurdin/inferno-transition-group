@@ -1,5 +1,4 @@
-import { cloneVNode, createVNode } from 'inferno';
-import Component from 'inferno-component';
+import { cloneVNode, createVNode, Component } from 'inferno';
 import { getChildMapping, mergeChildMappings } from './TransitionChildMapping';
 import { assign } from './util';
 
@@ -173,7 +172,7 @@ export class TransitionGroup extends Component {
 				childrenToRender.push(el);
 			}
 		}
-		
+
 		return createVNode(typeof component === 'string' ? 2 : 16, component, props && props.className, childrenToRender, props);
 	}
 }
